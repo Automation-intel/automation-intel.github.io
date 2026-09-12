@@ -2,8 +2,13 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-  # Lets you re-deploy the current branch by hand from the Actions tab.
+    branches:
+      - main
+      # The repository was empty when this site was scaffolded, so this
+      # branch became the default branch. Remove this line once the default
+      # branch is renamed to main (Settings -> Branches -> rename).
+      - claude/github-pages-blog-a9rjfz
+  # Lets you re-deploy the default branch by hand from the Actions tab.
   workflow_dispatch:
 
 # Allow the workflow to publish to Pages using OIDC, nothing more.

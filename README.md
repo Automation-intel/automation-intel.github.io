@@ -7,9 +7,12 @@ the whole site.
 
 ## One-time setup
 
-In the repository's **Settings → Pages**, set **Source** to **GitHub Actions**.
-The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
-then builds and deploys the site on every push to `main`.
+1. In **Settings → Pages**, set **Source** to **GitHub Actions**. The workflow
+   in [`.github/workflows/pages.yml`](.github/workflows/pages.yml) then builds
+   and deploys the site on every push to the default branch.
+2. Optionally rename the default branch to `main` in **Settings → Branches**.
+   The workflow already triggers on `main`; once renamed, delete the extra
+   branch name listed under `on: push:` in the workflow.
 
 ## Writing a post
 
