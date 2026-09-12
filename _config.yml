@@ -1,0 +1,58 @@
+# Site settings
+title: Automation Intel
+tagline: Notes on automation, tooling and applied intelligence
+description: >-
+  A blog about build automation, developer tooling, data pipelines
+  and the practical side of applied intelligence.
+author: Automation Intel
+email: steffenf.birkeland@gmail.com
+
+# The base hostname & protocol for the site.
+# For a <user>.github.io repo the site is served from the domain root,
+# so baseurl stays empty.
+url: "https://automation-intel.github.io"
+baseurl: ""
+
+# Social / links (leave blank to hide)
+github_username: Automation-intel
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+timezone: Etc/UTC
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+# Default front matter so posts don't have to repeat themselves
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+# Pagination-free listing: how many posts show on the home page (0 = all)
+posts_on_home: 0
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .github

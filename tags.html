@@ -1,0 +1,31 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+{%- assign tags = site.tags | sort -%}
+
+{%- if tags.size > 0 %}
+<div class="tag-cloud">
+  {%- for tag in tags %}
+  <a class="tag" href="#{{ tag[0] | slugify }}">{{ tag[0] }} ({{ tag[1].size }})</a>
+  {%- endfor %}
+</div>
+
+{%- for tag in tags %}
+<section class="tag-section" id="{{ tag[0] | slugify }}">
+  <h2>{{ tag[0] }}</h2>
+  <ul>
+    {%- for post in tag[1] %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}
+{%- else %}
+<p>No tags yet. Add a <code>tags:</code> list to a post's front matter.</p>
+{%- endif %}
